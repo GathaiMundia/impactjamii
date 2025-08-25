@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPACT JAMII - Wellness & Tree Planting Campaign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Brand Colors */
+        :root {
+            --brand-orange: #F59E0B; /* A vibrant orange */
+            --brand-teal: #0D9488;   /* A deep teal */
+            --brand-dark-blue: #1E3A8A; /* A darker blue for text */
+        }
+        .hero-bg {
+            /* UPDATED: Changed the background image to a serene landscape */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?kenya,landscape,serene');
+            background-size: cover;
+            background-position: center;
+        }
+        .countdown-item {
+            text-align: center;
+        }
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .bg-brand-orange { background-color: var(--brand-orange); }
+        .bg-brand-teal { background-color: var(--brand-teal); }
+        .text-brand-orange { color: var(--brand-orange); }
+        .text-brand-teal { color: var(--brand-teal); }
+        .text-brand-dark-blue { color: var(--brand-dark-blue); }
+        .border-brand-orange { border-color: var(--brand-orange); }
+        .hover\:bg-brand-orange-dark:hover { background-color: #D97706; }
+        .hover\:bg-brand-teal-dark:hover { background-color: #0F766E; }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#">
+                <!-- Logo Image -->
+                <img src="logoimpact.png" alt="IMPACT JAMII Logo" class="h-12">
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#challenge" class="text-gray-600 hover:text-brand-teal transition duration-300">The Challenge</a>
+                <a href="#services" class="text-gray-600 hover:text-brand-teal transition duration-300">Our Services</a>
+                <a href="#vision" class="text-gray-600 hover:text-brand-teal transition duration-300">Our Vision</a>
+                <a href="#cta" class="bg-brand-orange text-white px-4 py-2 rounded-full hover:bg-brand-orange-dark transition duration-300">Join Us</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#challenge" class="block py-2 px-4 text-sm hover:bg-gray-100">The Challenge</a>
+            <a href="#services" class="block py-2 px-4 text-sm hover:bg-gray-100">Our Services</a>
+            <a href="#vision" class="block py-2 px-4 text-sm hover:bg-gray-100">Our Vision</a>
+            <a href="#cta" class="block py-2 px-4 text-sm bg-orange-100 hover:bg-orange-200">Join Us</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white">
+        <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4">A Healthier You, A Greener Baringo.</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Join our free two-day event for the wellness of our community and environment. Let's unite to tackle diabetes, hypertension, and cardiovascular diseases.</p>
+            <div class="text-xl font-semibold mb-12">
+                <p>🗓️ 10th & 11th October 2025 | 📍 Kabarnet Park, Baringo County</p>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 text-white mb-8">
+                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div id="days" class="countdown-number">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div id="hours" class="countdown-number">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div id="minutes" class="countdown-number">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div id="seconds" class="countdown-number">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+
+            <a href="#services" class="bg-white text-brand-teal font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition duration-300">Discover Our Services</a>
+        </div>
+    </section>
+
+    <!-- The Challenge Section -->
+    <section id="challenge" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-blue">The Challenge We Face in Baringo</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Non-communicable diseases are a silent crisis. Here's a look at the health landscape we're working to improve.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Stat Card 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                    <div class="text-5xl text-brand-orange mb-4">🧡</div>
+                    <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Hypertension</h3>
+                    <p class="text-gray-600">Affects <span class="font-bold text-brand-orange">24.5%</span> of Kenyan adults, with only 14% achieving normal pressure control.</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                    <div class="text-5xl text-brand-orange mb-4">❤️</div>
+                    <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Cardiovascular Diseases</h3>
+                    <p class="text-gray-600">Account for a staggering <span class="font-bold text-brand-orange">13%</span> of all deaths annually in Kenya.</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                    <div class="text-5xl text-brand-orange mb-4">🌡️</div>
+                    <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Climate & Health</h3>
+                    <p class="text-gray-600">Every <span class="font-bold text-brand-orange">1°C</span> rise in temperature increases cardiovascular deaths by 2-5%.</p>
+                </div>
+                <!-- Stat Card 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                    <div class="text-5xl text-brand-orange mb-4">👨‍👩‍👧‍👦</div>
+                    <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Family Planning</h3>
+                    <p class="text-gray-600">Baringo's teenage pregnancy rate is <span class="font-bold text-brand-orange">20%</span>, higher than the national average of 15%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-blue">Health & Hope in Action</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We're providing a range of free services to increase healthcare access for over 10,000 residents.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Item -->
+                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                    <div class="text-3xl text-brand-teal">🩺</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Medical Consultations</h3>
+                        <p class="text-gray-600">Meet with general practitioners and specialists for expert advice.</p>
+                    </div>
+                </div>
+                <!-- Service Item -->
+                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                    <div class="text-3xl text-brand-teal">🔬</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Health Screenings</h3>
+                        <p class="text-gray-600">Get checked for critical health conditions like diabetes and hypertension.</p>
+                    </div>
+                </div>
+                <!-- Service Item -->
+                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                    <div class="text-3xl text-brand-teal">💊</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Medication Distribution</h3>
+                        <p class="text-gray-600">Access essential medicines for free or at a significantly reduced cost.</p>
+                    </div>
+                </div>
+                <!-- Service Item -->
+                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                    <div class="text-3xl text-brand-teal">🤰</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Reproductive Health</h3>
+                        <p class="text-gray-600">Receive counselling and information on various family planning methods.</p>
+                    </div>
+                </div>
+                <!-- Service Item -->
+                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                    <div class="text-3xl text-brand-teal">🍎</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Health Education</h3>
+                        <p class="text-gray-600">Attend workshops on nutrition, hygiene, and disease prevention.</p>
+                    </div>
+                </div>
+                <!-- Service Item -->
+                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                    <div class="text-3xl text-brand-teal">🌳</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Free Tree Seedlings</h3>
+                        <p class="text-gray-600">Every attendee receives a free seedling to plant at their homestead.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section id="vision" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/FBBF24/1E3A8A?text=Our+Vision" alt="Community Vision" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-blue mb-4">Our Vision: A Resilient Community</h2>
+                    <p class="text-gray-600 mb-6">We believe this event will create a lasting positive impact. By attending, you contribute to:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-brand-teal mr-3 mt-1">✓</span>
+                            <span><span class="font-semibold">Early Disease Detection:</span> Identifying health issues before they become critical.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-teal mr-3 mt-1">✓</span>
+                            <span><span class="font-semibold">A Climate-Resilient Community:</span> Gaining capacity to respond to climate change.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-teal mr-3 mt-1">✓</span>
+                            <span><span class="font-semibold">Increased Health Awareness:</span> Learning about lifestyle choices that improve your health.</span>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-brand-teal mr-3 mt-1">✓</span>
+                            <span><span class="font-semibold">Data-Driven Planning:</span> Helping collect valuable health data for future county planning.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="bg-brand-teal text-white">
+        <div class="container mx-auto px-6 py-20 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Be Part of the Change!</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Your health and environment are our priorities. Join us in Kabarnet Park to build a healthier, stronger, and greener Baringo.</p>
+            <div class="bg-white text-brand-dark-blue font-bold text-2xl p-4 rounded-lg inline-block shadow-lg">
+                Mark Your Calendar: 10th & 11th October 2025
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <img src="logoimpact2.png" alt="IMPACT JAMII Logo" class="h-16 mx-auto mb-4">
+            <p class="text-gray-400">Breathing life into the future</p>
+            <div class="mt-4">
+                <p>&copy; 2025 IMPACT JAMII. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (mobileMenu.classList.contains('hidden') === false) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Countdown Timer Logic
+        const countdown = () => {
+            const eventDate = new Date('October 10, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = eventDate - now;
+
+            const seconds = 1000;
+            const minutes = seconds * 60;
+            const hours = minutes * 60;
+            const days = hours * 24;
+
+            let timeDays = Math.floor(difference / days);
+            let timeHours = Math.floor((difference % days) / hours);
+            let timeMinutes = Math.floor((difference % hours) / minutes);
+            let timeSeconds = Math.floor((difference % minutes) / seconds);
+
+            timeDays = timeDays < 10 ? '0' + timeDays : timeDays;
+            timeHours = timeHours < 10 ? '0' + timeHours : timeHours;
+            timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
+            timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
+
+            if (difference > 0) {
+                document.getElementById('days').innerText = timeDays;
+                document.getElementById('hours').innerText = timeHours;
+                document.getElementById('minutes').innerText = timeMinutes;
+                document.getElementById('seconds').innerText = timeSeconds;
+            } else {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+            }
+        };
+
+        setInterval(countdown, 1000);
+    </script>
+
+</body>
+// ...existing code...
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (mobileMenu.classList.contains('hidden') === false) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Countdown Timer Logic
+        const countdown = () => {
+            const eventDate = new Date('October 10, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = eventDate - now;
+
+            const seconds = 1000;
+            const minutes = seconds * 60;
+            const hours = minutes * 60;
+            const days = hours * 24;
+
+            let timeDays = Math.floor(difference / days);
+            let timeHours = Math.floor((difference % days) / hours);
+            let timeMinutes = Math.floor((difference % hours) / minutes);
+            let timeSeconds = Math.floor((difference % minutes) / seconds);
+
+            timeDays = timeDays < 10 ? '0' + timeDays : timeDays;
+            timeHours = timeHours < 10 ? '0' + timeHours : timeHours;
+            timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
+            timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
+
+            if (difference > 0) {
+                document.getElementById('days').innerText = timeDays;
+                document.getElementById('hours').innerText = timeHours;
+                document.getElementById('minutes').innerText = timeMinutes;
+                document.getElementById('seconds').innerText = timeSeconds;
+            } else {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+            }
+        };
+
+        setInterval(countdown, 1000);
+
+        // Dynamic Serene Background for Hero Section
+        const sereneImages = [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80", // forest
+            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80", // river
+            "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80", // sunrise
+            "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80", // mountain
+            "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80", // lake
+            "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1600&q=80"  // savannah
+        ];
+        let currentImage = 0;
+        function changeHeroBg() {
+            const heroSection = document.querySelector('.hero-bg');
+            heroSection.style.backgroundImage =
+                `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${sereneImages[currentImage]}')`;
+            currentImage = (currentImage + 1) % sereneImages.length;
+        }
+        // Initial background
+        changeHeroBg();
+        // Change every 8 seconds
+        setInterval(changeHeroBg, 8000);
+    </script>
+
+// ...existing code...
+</html>
