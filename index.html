@@ -17,15 +17,14 @@
             --brand-dark-blue: #1E3A8A; /* A darker blue for text */
         }
         .hero-bg {
-            /* UPDATED: New background with a greenish hue and faded health icons */
-            background-color: var(--brand-teal); /* Fallback color */
+            /* UPDATED: Uses background.jpg with a semi-transparent overlay to reduce opacity */
             background-image:
-                /* Repeating faded medical cross icon pattern */
-                url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3e%3cpath d='M25 0h10v25h25v10H35v25H25V35H0V25h25z' fill='rgba(255,255,255,0.07)'/%3e%3c/svg%3e"),
-                /* Greenish gradient overlay */
-                linear-gradient(45deg, rgba(13, 148, 136, 0.9), rgba(15, 118, 110, 0.9));
-            background-size: auto, cover;
-            background-position: center, center;
+                /* Semi-transparent black overlay to reduce opacity */
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                /* Your custom background image */
+                url('background.jpg');
+            background-size: cover;
+            background-position: center;
         }
         .countdown-item {
             text-align: center;
@@ -276,11 +275,11 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-8 text-center">
-            <img src="impactlogo2.png" alt="IMPACT JAMII Logo" class="h-16 mx-auto mb-4">
+            <img src="logoimpact2.png" alt="IMPACT JAMII Logo" class="h-16 mx-auto mb-4">
             <p class="text-gray-400">Breathing life into the future</p>
             <div class="mt-4">
                 <p>&copy; 2025 IMPACT JAMII. All rights reserved.</p>
-                <a href="https://wa.me/254799172342" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-500 hover:text-brand-teal mt-2 inline-block transition duration-300">Curated by Curated Designs</a>
+                <a href="https://wa.me/254799172342" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-500 hover:text-brand-teal mt-2 inline-block transition duration-300 underline">Curated by Curated Designs</a>
             </div>
         </div>
     </footer>
