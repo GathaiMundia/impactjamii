@@ -10,6 +10,9 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         /* Brand Colors */
         :root {
             --brand-orange: #F59E0B; /* A vibrant orange */
@@ -17,36 +20,61 @@
             --brand-dark-blue: #1E3A8A; /* A darker blue for text */
         }
         .hero-bg {
-            /* UPDATED: Uses background.jpg with a semi-transparent overlay to reduce opacity */
             background-image:
-                /* Semi-transparent black overlay to reduce opacity */
                 linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                /* Your custom background image */
-                url('background.jpg');
+                url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
         .countdown-item {
             text-align: center;
         }
+        /* UPDATED: Made countdown timer smaller on mobile */
         .countdown-number {
-            font-size: 2.5rem;
+            font-size: 1.875rem; /* text-3xl */
             font-weight: 900;
             line-height: 1;
         }
         .countdown-label {
-            font-size: 0.875rem;
+            font-size: 0.75rem; /* text-xs */
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
+        /* Scale up timer on larger screens */
+        @media (min-width: 768px) {
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+            .countdown-label {
+                font-size: 0.875rem;
+            }
+        }
+
         .bg-brand-orange { background-color: var(--brand-orange); }
         .bg-brand-teal { background-color: var(--brand-teal); }
         .text-brand-orange { color: var(--brand-orange); }
         .text-brand-teal { color: var(--brand-teal); }
         .text-brand-dark-blue { color: var(--brand-dark-blue); }
         .border-brand-orange { border-color: var(--brand-orange); }
-        .hover\:bg-brand-orange-dark:hover { background-color: #D97706; }
-        .hover\:bg-brand-teal-dark:hover { background-color: #0F766E; }
+        
+        /* Enhanced Button Style */
+        .btn-animated {
+            background-image: linear-gradient(to right, var(--brand-orange), #fbbf24, var(--brand-orange));
+            background-size: 200% auto;
+            transition: background-position 0.5s;
+        }
+        .btn-animated:hover {
+            background-position: right center;
+        }
+
+        /* Card hover effect */
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
 
     </style>
 </head>
@@ -56,14 +84,13 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#">
-                <!-- Logo Image -->
                 <img src="logoimpact.png" alt="IMPACT JAMII Logo" class="h-12">
             </a>
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="#challenge" class="text-gray-600 hover:text-brand-teal transition duration-300">The Challenge</a>
                 <a href="#services" class="text-gray-600 hover:text-brand-teal transition duration-300">Our Services</a>
                 <a href="#vision" class="text-gray-600 hover:text-brand-teal transition duration-300">Our Vision</a>
-                <a href="#cta" class="bg-brand-orange text-white px-4 py-2 rounded-full hover:bg-brand-orange-dark transition duration-300">Join Us</a>
+                <a href="#cta" class="btn-animated text-white px-4 py-2 rounded-full font-semibold">Join Us</a>
             </div>
             <div class="md:hidden">
                 <button id="menu-btn" class="text-gray-600 focus:outline-none">
@@ -85,25 +112,25 @@
         <div class="container mx-auto px-6 py-24 md:py-32 text-center">
             <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4">A Healthier You, A Greener Baringo.</h1>
             <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Join our free two-day event for the wellness of our community and environment. Let's unite to tackle diabetes, hypertension, and cardiovascular diseases.</p>
-            <div class="text-xl font-semibold mb-12">
+            <div class="text-lg md:text-xl font-semibold mb-12">
                 <p>🗓️ 10th & 11th October 2025 | 📍 Kabarnet Park, Baringo County</p>
             </div>
             
             <!-- Countdown Timer -->
-            <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 text-white mb-8">
-                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+            <div id="countdown" class="flex justify-center space-x-2 md:space-x-8 text-white mb-8">
+                <div class="countdown-item bg-white bg-opacity-20 p-3 md:p-4 rounded-lg min-w-[60px] md:min-w-[90px]">
                     <div id="days" class="countdown-number">00</div>
                     <div class="countdown-label">Days</div>
                 </div>
-                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                <div class="countdown-item bg-white bg-opacity-20 p-3 md:p-4 rounded-lg min-w-[60px] md:min-w-[90px]">
                     <div id="hours" class="countdown-number">00</div>
                     <div class="countdown-label">Hours</div>
                 </div>
-                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                <div class="countdown-item bg-white bg-opacity-20 p-3 md:p-4 rounded-lg min-w-[60px] md:min-w-[90px]">
                     <div id="minutes" class="countdown-number">00</div>
                     <div class="countdown-label">Minutes</div>
                 </div>
-                <div class="countdown-item bg-white bg-opacity-20 p-4 rounded-lg">
+                <div class="countdown-item bg-white bg-opacity-20 p-3 md:p-4 rounded-lg min-w-[60px] md:min-w-[90px]">
                     <div id="seconds" class="countdown-number">00</div>
                     <div class="countdown-label">Seconds</div>
                 </div>
@@ -122,7 +149,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Stat Card 1: Hypertension -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                <div class="bg-gray-50 p-6 rounded-lg text-center border-t-4 border-brand-orange card-hover">
                     <div class="flex justify-center items-center h-16 mb-4">
                         <svg class="w-14 h-14 text-brand-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -133,7 +160,7 @@
                     <p class="text-gray-600">Affects <span class="font-bold text-brand-orange">24.5%</span> of Kenyan adults, with only 14% achieving normal pressure control.</p>
                 </div>
                 <!-- Stat Card 2: Cardiovascular Diseases -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                <div class="bg-gray-50 p-6 rounded-lg text-center border-t-4 border-brand-orange card-hover">
                     <div class="flex justify-center items-center h-16 mb-4">
                         <svg class="w-14 h-14 text-brand-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -143,7 +170,7 @@
                     <p class="text-gray-600">Account for a staggering <span class="font-bold text-brand-orange">13%</span> of all deaths annually in Kenya.</p>
                 </div>
                 <!-- Stat Card 3: Climate & Health -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                <div class="bg-gray-50 p-6 rounded-lg text-center border-t-4 border-brand-orange card-hover">
                      <div class="flex justify-center items-center h-16 mb-4">
                         <svg class="w-14 h-14 text-brand-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c-3.182 0-5.727 2.545-5.727 5.727 0 1.818.818 3.455 2.045 4.545V18a3.682 3.682 0 003.682 3.682h0a3.682 3.682 0 003.682-3.682v-5.478c1.227-1.09 2.045-2.727 2.045-4.545C17.727 4.795 15.182 2.25 12 2.25z" />
@@ -154,7 +181,7 @@
                     <p class="text-gray-600">Every <span class="font-bold text-brand-orange">1°C</span> rise in temperature increases cardiovascular deaths by 2-5%.</p>
                 </div>
                 <!-- Stat Card 4: Family Planning -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-orange">
+                <div class="bg-gray-50 p-6 rounded-lg text-center border-t-4 border-brand-orange card-hover">
                     <div class="flex justify-center items-center h-16 mb-4">
                         <svg class="w-14 h-14 text-brand-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 1.023 1.023 0 00.474-1.594 9.1 9.1 0 00-1.995-3.044 9.094 9.094 0 00-3.741.479m-2.25 0a9.094 9.094 0 00-3.741-.479 9.1 9.1 0 00-1.995 3.044 1.023 1.023 0 00.474 1.594 9.094 9.094 0 003.741.479M12 12.75a4.5 4.5 0 110-9 4.5 4.5 0 010 9z" />
@@ -177,7 +204,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Item -->
-                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                <div class="bg-white p-8 rounded-lg flex items-start space-x-4 card-hover">
                     <div class="text-3xl text-brand-teal">🩺</div>
                     <div>
                         <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Medical Consultations</h3>
@@ -185,7 +212,7 @@
                     </div>
                 </div>
                 <!-- Service Item -->
-                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                <div class="bg-white p-8 rounded-lg flex items-start space-x-4 card-hover">
                     <div class="text-3xl text-brand-teal">🔬</div>
                     <div>
                         <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Health Screenings</h3>
@@ -193,7 +220,7 @@
                     </div>
                 </div>
                 <!-- Service Item -->
-                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                <div class="bg-white p-8 rounded-lg flex items-start space-x-4 card-hover">
                     <div class="text-3xl text-brand-teal">💊</div>
                     <div>
                         <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Medication Distribution</h3>
@@ -201,7 +228,7 @@
                     </div>
                 </div>
                 <!-- Service Item -->
-                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                <div class="bg-white p-8 rounded-lg flex items-start space-x-4 card-hover">
                     <div class="text-3xl text-brand-teal">🤰</div>
                     <div>
                         <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Reproductive Health</h3>
@@ -209,7 +236,7 @@
                     </div>
                 </div>
                 <!-- Service Item -->
-                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                <div class="bg-white p-8 rounded-lg flex items-start space-x-4 card-hover">
                     <div class="text-3xl text-brand-teal">🍎</div>
                     <div>
                         <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Health Education</h3>
@@ -217,7 +244,7 @@
                     </div>
                 </div>
                 <!-- Service Item -->
-                <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-4">
+                <div class="bg-white p-8 rounded-lg flex items-start space-x-4 card-hover">
                     <div class="text-3xl text-brand-teal">🌳</div>
                     <div>
                         <h3 class="text-xl font-bold text-brand-dark-blue mb-2">Free Tree Seedlings</h3>
@@ -292,7 +319,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Smooth Scrolling
+        // Smooth Scrolling - JS fallback if CSS is not supported
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
